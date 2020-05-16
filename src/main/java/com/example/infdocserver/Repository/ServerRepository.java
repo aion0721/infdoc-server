@@ -5,7 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import com.example.infdocserver.Domain.Server;
 
+import java.util.List;
+
 @Repository
 public interface ServerRepository extends JpaRepository<Server, Long> {
+
+    List<Server> findBySysgrpId(Long sysgrpId);
 
 }
