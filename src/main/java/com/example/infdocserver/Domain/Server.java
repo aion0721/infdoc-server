@@ -38,7 +38,7 @@ public class Server {
     }
 
     @Override
-    public Stirng toString() {
+    public String toString() {
         return "Server (id=" + id + ", name=" + name + ", sysgrpId=" + sysgrpId + ")";
     }
 
