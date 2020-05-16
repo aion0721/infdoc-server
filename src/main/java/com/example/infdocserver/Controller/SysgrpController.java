@@ -20,7 +20,7 @@ public class SysgrpController {
     private SysgrpService sysgrpService;
 
     @GetMapping("list")
-    public List<Sysgrp> index(@ModelAttribute Sysgrp sysgrp) {
+    public List<Sysgrp> list(@ModelAttribute Sysgrp sysgrp) {
         return sysgrpService.findAll();
     }
 

@@ -20,7 +20,7 @@ public class ServerController {
     private ServerService serverService;
 
     @GetMapping("list")
-    public List<Server> index(@ModelAttribute Server server) {
+    public List<Server> list(@ModelAttribute Server server) {
         return serverService.findAll();
     }
 

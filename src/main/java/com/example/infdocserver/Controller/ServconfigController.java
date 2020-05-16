@@ -20,7 +20,7 @@ public class ServconfigController {
     private ServconfigService servconfigService;
 
     @GetMapping("list")
-    public List<Servconfig> index(@ModelAttribute Servconfig servconfig) {
+    public List<Servconfig> list(@ModelAttribute Servconfig servconfig) {
         return servconfigService.findAll();
     }
 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charst="utf-8" />
+    <title>JSON Placeholder</title>
+
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+      $(document).ready(function () {
+        $.ajax({
+          url: "http://localhost:8080/sysgrps/list",
+        }).then(function (data) {
+          // for debug
+          console.log(data);
+          for (var i = 0; i < data.length; i++) {
+            console.log("id : " + data[i].id);
+            console.log("name : " + data[i].name);
+            // add rows
+            $(".users").append(data[i].id + ", " + data[i].name + "<br>\n");
+          }
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <h1>JSON Placeholder API</h1>
+
+    <!-- ユーザーデータを以下に格納 -->
+    <p class="users"></p>
+  </body>
+</html>
