@@ -7,6 +7,15 @@
     <!-- jQuery -->
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 
+    <!-- Bootstrap -->
+
+    <link
+      rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+    />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
     <!-- Custom JavaScript -->
     <script>
       $(document).ready(function () {
@@ -20,9 +29,40 @@
             console.log("name : " + data[i].name);
             // add rows
             $(".users").append(data[i].id + ", " + data[i].name + "<br>\n");
+            $("#sysgrptbl").append(
+                $("<tr></tr>")
+                .append($("<td></td>").text(data[i].id))
+                .append($("<td></td>").text(data[i].name))
+            )
           }
         });
       });
+    </script>
+
+    <script>
+      // fetch("http://localhost:8080/sysgrps/list")
+      //   .then((response) => {
+      //     if (!response.ok) {
+      //       throw new Error();
+      //     }
+      //     return response.json();
+      //   })
+      //   .then((json) => {
+      //     console.log(json);
+      //     var parentDiv = document.getElementById("sysgrp");
+      //     for (var i = 0; i < json.length; i++) {
+      //       var newElement = document.createElement("p");
+      //       var newContent = Document.createTextNode(
+      //         json[i].id + "," + json[i].name + "\n"
+      //       );
+      //       newElement.appendChild(newContent);
+      //       newElement.setAttribute("id", "child" + i);
+      //       parentDiv.insertBefore(newElement, null);
+      //     }
+      //   })
+      //   .catch((reason) => {
+      //     console.log(reason);
+      //   });
     </script>
   </head>
 
@@ -31,5 +71,24 @@
 
     <!-- ユーザーデータを以下に格納 -->
     <p class="users"></p>
+    <div id="sysgrp"></div>
+    <table class="table" id="sysgrptbl">
+      <thead>
+        <tr>
+          <th>
+            Number
+          </th>
+          <th>
+            Name
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>1</th>
+              <td>tst</td>
+          </tr>
+      </tbody>
+    </table>
   </body>
 </html>
