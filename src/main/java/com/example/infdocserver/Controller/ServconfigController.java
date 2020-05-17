@@ -13,7 +13,7 @@ import com.example.infdocserver.Service.ServconfigService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/servconfigs")
+@RequestMapping("/api/sysgrps/{sysgrpId}/servers/{servId}/servconfigs")
 public class ServconfigController {
 
     @Autowired
@@ -24,12 +24,12 @@ public class ServconfigController {
         return servconfigService.findAll();
     }
 
-    @GetMapping("id/{id}")
+    @GetMapping("{id}")
     public Servconfig findById(@PathVariable Long id, @ModelAttribute Servconfig servconfig) {
         return servconfigService.findOne(id);
     }
 
-    @GetMapping("servid/{servId}")
+    @GetMapping()
     public List<Servconfig> findByServId(@PathVariable Long servId, @ModelAttribute Servconfig servconfig) {
         return servconfigService.findByServId(servId);
     }
