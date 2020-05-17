@@ -18,25 +18,6 @@
 
     <!-- Custom JavaScript -->
     <script>
-      $(document).ready(function () {
-        $.ajax({
-          url: "http://localhost:8080/sysgrps/list",
-        }).then(function (data) {
-          // for debug
-          console.log(data);
-          for (var i = 0; i < data.length; i++) {
-            console.log("id : " + data[i].id);
-            console.log("name : " + data[i].name);
-            // add rows
-            $(".users").append(data[i].id + ", " + data[i].name + "<br>\n");
-            $("#sysgrptbl").append(
-              $("<tr></tr>")
-                .append($("<td></td>").text(data[i].id))
-                .append($("<td></td>").text(data[i].name))
-            );
-          }
-        });
-      });
       $(function () {
         $("button#new").click(function () {
           var button = $(this);
@@ -55,6 +36,7 @@
           })
             .done(function (data) {
               alert("success");
+              location.href = "/sysgrps/";
             })
             .fail(function () {
               alert("Error has occured.");
