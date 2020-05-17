@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charst="utf-8" />
+    <title>JSON Placeholder</title>
+
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- Bootstrap -->
+
+    <link
+      rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+    />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+      $(document).ready(function () {
+        $.ajax({
+          url: "http://localhost:8080/sysgrps/list",
+        }).then(function (data) {
+          // for debug
+          console.log(data);
+          for (var i = 0; i < data.length; i++) {
+            console.log("id : " + data[i].id);
+            console.log("name : " + data[i].name);
+            // add rows
+            $(".users").append(data[i].id + ", " + data[i].name + "<br>\n");
+            $("#sysgrptbl").append(
+              $("<tr></tr>")
+                .append($("<td></td>").text(data[i].id))
+                .append($("<td></td>").text(data[i].name))
+            );
+          }
+        });
+      });
+      $(function () {
+        $("button#new").click(function () {
+          var button = $(this);
+          button.attr("disabled", true);
+
+          var data = {
+            name: $("#name").val(),
+          };
+
+          $.ajax({
+            type: "post",
+            url: "http://localhost:8080/api/sysgrps/create",
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            dataType: "json",
+          })
+            .done(function (data) {
+              alert("success");
+            })
+            .fail(function () {
+              alert("Error has occured.");
+            })
+            .then(function () {
+              console.log();
+              button.attr("disabled", false);
+            });
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <h1>JSON Placeholder API</h1>
+
+    <!-- ユーザーデータを以下に格納 -->
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" class="form-control" />
+    </div>
+    <div class="control-grpup">
+      <div class="controls">
+        <button id="new" type="button">New!</button>
+      </div>
+    </div>
+  </body>
+</html>
