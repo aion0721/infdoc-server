@@ -35,6 +35,11 @@ public class SysgrpController {
         return sysgrp;
     }
 
+    @GetMapping("{id}")
+    public Sysgrp findById(@PathVariable("id") Long id) {
+        return sysgrpService.findOne(id);
+    }
+
     @PostMapping("delete/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void create(@PathVariable("id") Long id) {
