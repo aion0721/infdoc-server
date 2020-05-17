@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.http.HttpStatus;
 
 import com.example.infdocserver.Domain.Server;
 import com.example.infdocserver.Service.ServerService;
@@ -32,6 +36,13 @@ public class ServerController {
     @GetMapping()
     public List<Server> findBySysgrpId(@PathVariable Long sysgrpId, @ModelAttribute Server server) {
         return serverService.findBySysgrpId(sysgrpId);
+    }
+
+    @PostMapping("create")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Server create(@RequestBody Server server) {
+        serverService.save(server);
+        return server;
     }
 
 }
