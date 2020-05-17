@@ -13,4 +13,9 @@ public class MainController {
         return "sysgrps/index";
     }
 
+    @GetMapping("sysgrps/new")
+    public String sysgrpsNew() {
+        return "sysgrps/new";
+    }
+
 }

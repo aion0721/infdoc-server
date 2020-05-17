@@ -28,7 +28,7 @@ public class SysgrpController {
     }
 
     @PostMapping("create")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.OK)
     public Sysgrp create(@RequestBody Sysgrp sysgrp) {
         sysgrpService.save(sysgrp);
         return sysgrp;
