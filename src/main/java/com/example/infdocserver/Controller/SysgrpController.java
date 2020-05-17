@@ -40,7 +40,7 @@ public class SysgrpController {
         return sysgrpService.findOne(id);
     }
 
-    @PostMapping("delete/{id}")
+    @GetMapping("delete/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void create(@PathVariable("id") Long id) {
         sysgrpService.delete(id);

@@ -23,4 +23,9 @@ public class MainController {
         return "sysgrps/edit";
     }
 
+    @GetMapping("sysgrps/delete")
+    public String sysgrpDelete() {
+        return "sysgrps/delete";
+    }
+
 }

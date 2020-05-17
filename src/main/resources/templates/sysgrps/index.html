@@ -40,9 +40,15 @@
                 )
                 .append(
                   $("<td></td>").html(
-                    "<a href='/sysgrps/edit?id=" + data[i].id + "'>Edit</a>"
+                    "<a href='/sysgrps/edit?id=" +
+                      data[i].id +
+                      "'>Edit</a>" +
+                      "<a href='/sysgrps/delete?id=" +
+                      data[i].id +
+                      "'>Delete</a>"
                   )
                 )
+                .append($("<td></td>").html())
             );
           }
         });
