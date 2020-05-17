@@ -33,6 +33,16 @@
               $("<tr></tr>")
                 .append($("<td></td>").text(data[i].id))
                 .append($("<td></td>").text(data[i].name))
+                .append(
+                  $("<td></td>").html(
+                    "<a href=/sysgrps/" + data[i].id + "/servers>Links</a>"
+                  )
+                )
+                .append(
+                  $("<td></td>").html(
+                    "<a href='/sysgrps/edit?id=" + data[i].id + "'>Edit</a>"
+                  )
+                )
             );
           }
         });
@@ -80,6 +90,12 @@
           </th>
           <th>
             Name
+          </th>
+          <th>
+            Links
+          </th>
+          <th>
+            functions
           </th>
         </tr>
       </thead>
