@@ -18,4 +18,14 @@ public class MainController {
         return "sysgrps/new";
     }
 
+    @GetMapping("sysgrps/edit")
+    public String sysgrpsEdit() {
+        return "sysgrps/edit";
+    }
+
+    @GetMapping("sysgrps/delete")
+    public String sysgrpDelete() {
+        return "sysgrps/delete";
+    }
+
 }

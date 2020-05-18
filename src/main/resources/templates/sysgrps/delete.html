@@ -18,21 +18,34 @@
 
     <!-- Custom JavaScript -->
     <script>
+      function getParam(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return "";
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+      }
+      $(document).ready(function () {
+        $.ajax({
+          url: "http://localhost:8080/api/sysgrps/" + getParam("id"),
+        }).then(function (data) {
+          console.log(data.id);
+          $("#name").val(data.name);
+          $("#id").val(data.id);
+          // for debug
+          console.log(data);
+        });
+      });
       $(function () {
-        $("button#new").click(function () {
+        $("button#delete").click(function () {
           var button = $(this);
           button.attr("disabled", true);
 
-          var data = {
-            name: $("#name").val(),
-          };
-
           $.ajax({
-            type: "post",
-            url: "http://localhost:8080/api/sysgrps/create",
-            data: JSON.stringify(data),
-            contentType: "application/json",
-            dataType: "json",
+            type: "get",
+            url: "http://localhost:8080/api/sysgrps/delete/" + $("#id").val(),
           })
             .done(function (data) {
               alert("success");
@@ -42,7 +55,6 @@
               alert("Error has occured.");
             })
             .then(function () {
-              console.log();
               button.attr("disabled", false);
             });
         });
@@ -56,11 +68,12 @@
     <!-- ユーザーデータを以下に格納 -->
     <div class="form-group">
       <label for="name">Name:</label>
-      <input type="text" id="name" class="form-control" />
+      <input type="text" id="name" disabled />
+      <input type="hidden" id="id" class="form-control" />
     </div>
     <div class="control-grpup">
       <div class="controls">
-        <button id="new" type="button">New!</button>
+        <button id="delete" type="button">Delete</button>
       </div>
     </div>
   </body>
