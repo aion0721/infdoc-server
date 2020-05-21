@@ -48,19 +48,21 @@
   </head>
 
   <body>
-    <div th:replace="common :: header"></div>
+    <div class="container-fluid">
+      <div th:replace="common :: header"></div>
 
-    <!-- ユーザーデータを以下に格納 -->
-    <div class="form-group">
-      <label for="name">Name:</label>
-      <input type="text" id="name" class="form-control" />
-      <input type="hidden" id="id" class="form-control" />
-    </div>
-    <div class="control-grpup">
-      <div class="controls">
-        <button id="update" type="button">Update</button>
+      <!-- ユーザーデータを以下に格納 -->
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" class="form-control" />
+        <input type="hidden" id="id" class="form-control" />
       </div>
+      <div class="control-grpup">
+        <div class="controls">
+          <button id="update" type="button">Update</button>
+        </div>
+      </div>
+      <div th:replace="common :: footer"></div>
     </div>
-    <div th:replace="common :: footer"></div>
   </body>
 </html>

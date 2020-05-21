@@ -41,19 +41,20 @@
   </head>
 
   <body>
-    <div th:replace="common :: header"></div>
-
-    <!-- ユーザーデータを以下に格納 -->
-    <div class="form-group">
-      <label for="name">Name:</label>
-      <input type="text" id="name" disabled />
-      <input type="hidden" id="id" class="form-control" />
-    </div>
-    <div class="control-grpup">
-      <div class="controls">
-        <button id="delete" type="button">Delete</button>
+    <div class="container-fluid">
+      <div th:replace="common :: header"></div>
+      <!-- ユーザーデータを以下に格納 -->
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" disabled />
+        <input type="hidden" id="id" class="form-control" />
       </div>
+      <div class="control-grpup">
+        <div class="controls">
+          <button id="delete" type="button">Delete</button>
+        </div>
+      </div>
+      <div th:replace="common :: footer"></div>
     </div>
-    <div th:replace="common :: footer"></div>
   </body>
 </html>

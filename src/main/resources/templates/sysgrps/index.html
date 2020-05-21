@@ -68,31 +68,32 @@
     </script>
   </head>
   <body>
-    <div th:replace="common :: header"></div>
-
-    <!-- ユーザーデータを以下に格納 -->
-    <p class="users"></p>
-    <div id="sysgrp"></div>
-    <table class="table" id="sysgrptbl">
-      <thead>
-        <tr>
-          <th>
-            Number
-          </th>
-          <th>
-            Name
-          </th>
-          <th>
-            Links
-          </th>
-          <th>
-            functions
-          </th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-    <button onClick="location.href='/sysgrps/new'">New!</button>
-    <div th:replace="common :: footer"></div>
+    <div class="container-fluid">
+      <div th:replace="common :: header"></div>
+      <!-- ユーザーデータを以下に格納 -->
+      <p class="users"></p>
+      <div id="sysgrp"></div>
+      <table class="table" id="sysgrptbl">
+        <thead>
+          <tr>
+            <th>
+              Number
+            </th>
+            <th>
+              Name
+            </th>
+            <th>
+              Links
+            </th>
+            <th>
+              functions
+            </th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <button onClick="location.href='/sysgrps/new'">New!</button>
+      <div th:replace="common :: footer"></div>
+    </div>
   </body>
 </html>
