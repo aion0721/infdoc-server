@@ -12,8 +12,11 @@
     <th:blosk th:replace="${scripts} ?: _" />
   </head>
   <body>
-    <header th:fragment="header">
+    <header th:fragment="header" class="sticky-top">
       <h1><a th:href="@{'/'}">SampleApp</a></h1>
     </header>
+    <footer th:fragment="footer" class="fixed-bottom">
+      <h1>Footer</h1>
+    </footer>
   </body>
 </html>
