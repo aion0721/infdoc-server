@@ -41,7 +41,7 @@
   </head>
 
   <body>
-    <h1>JSON Placeholder API</h1>
+    <div th:replace="common :: header"></div>
 
     <!-- ユーザーデータを以下に格納 -->
     <div class="form-group">
@@ -54,5 +54,6 @@
         <button id="delete" type="button">Delete</button>
       </div>
     </div>
+    <div th:replace="common :: footer"></div>
   </body>
 </html>

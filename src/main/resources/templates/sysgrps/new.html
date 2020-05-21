@@ -1,21 +1,6 @@
 <!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charst="utf-8" />
-    <title>JSON Placeholder</title>
-
-    <!-- jQuery -->
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-
-    <!-- Bootstrap -->
-
-    <link
-      rel="stylesheet"
-      href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
-    />
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="common :: meta_header('Sysgrps/new',~{::link},~{::script})">
     <!-- Custom JavaScript -->
     <script>
       $(function () {
@@ -51,8 +36,7 @@
   </head>
 
   <body>
-    <h1>JSON Placeholder API</h1>
-
+    <div th:replace="common :: header"></div>
     <!-- ユーザーデータを以下に格納 -->
     <div class="form-group">
       <label for="name">Name:</label>
@@ -63,5 +47,6 @@
         <button id="new" type="button">New!</button>
       </div>
     </div>
+    <div th:replace="common :: footer"></div>
   </body>
 </html>
