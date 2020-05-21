@@ -1,32 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charst="utf-8" />
-    <title>JSON Placeholder</title>
-
-    <!-- jQuery -->
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-
-    <!-- Bootstrap -->
-
-    <link
-      rel="stylesheet"
-      href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
-    />
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
+<html xmlns:th="http://www.thymeleaf.org">
+  <head
+    th:replace="common :: meta_header('Sysgrps/delete',~{::link},~{::script})"
+  >
     <!-- Custom JavaScript -->
     <script>
-      function getParam(name, url) {
-        if (!url) url = window.location.href;
-        name = name.replace(/[\[\]]/g, "\\$&");
-        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-          results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return "";
-        return decodeURIComponent(results[2].replace(/\+/g, " "));
-      }
       $(document).ready(function () {
         $.ajax({
           url: "http://localhost:8080/api/sysgrps/" + getParam("id"),
@@ -70,18 +48,21 @@
   </head>
 
   <body>
-    <h1>JSON Placeholder API</h1>
+    <div class="container-fluid">
+      <div th:replace="common :: header"></div>
 
-    <!-- ユーザーデータを以下に格納 -->
-    <div class="form-group">
-      <label for="name">Name:</label>
-      <input type="text" id="name" class="form-control" />
-      <input type="hidden" id="id" class="form-control" />
-    </div>
-    <div class="control-grpup">
-      <div class="controls">
-        <button id="update" type="button">Update</button>
+      <!-- ユーザーデータを以下に格納 -->
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" class="form-control" />
+        <input type="hidden" id="id" class="form-control" />
       </div>
+      <div class="control-grpup">
+        <div class="controls">
+          <button id="update" type="button">Update</button>
+        </div>
+      </div>
+      <div th:replace="common :: footer"></div>
     </div>
   </body>
 </html>
